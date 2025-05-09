@@ -26,8 +26,9 @@
 ### Example: `~/csci2081/My2081Stuff/repo-akakp008: git commit -m "This is my verry first cimmit!"`
 ## To see which branch you’re on, and to see the other branches available, use the following command. The branch you’re on will be indicated by an asterisk (*): `git branch`
 
-# Pulling from Repo/Branch
+# Pulling from Your Repo/Branch
 ## If multiple developers are pushing code to your repo, or you have made changes to your code outside your local machine, you will have to ‘pull’ the current version of the preferred branch to your machine.
 ### Type the following into a your terminal while in the directory of your clonned repository: `git pull`
 ### Example: `~/csci2081/My2081Stuff/repo-akakp008: git pull`
 
+# Pushing to Your Repo/Branch
