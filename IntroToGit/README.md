@@ -14,3 +14,7 @@
 ### Type the following into a your terminal while in the directory of your clonned repository: `git add <file_name>`
 ### Example: `~/csci2081/My2081Stuff/repo-<YOUR-X500-HERE>: git add <file_name>`
 
+# Committing to Your Repo 
+### Comitting locks in the changes you've made
+### Type the following into a your terminal while in the directory of your clonned repository: `git commit -m “<a_message>"`
+### Example: `~/csci2081/My2081Stuff/repo-<YOUR-X500-HERE>: `git commit -m "This is my verry first cimmit!"`
