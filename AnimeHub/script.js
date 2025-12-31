@@ -1,37 +1,45 @@
+const animeGrid = document.getElementById("animeGrid");
 const searchInput = document.getElementById("searchInput");
-const cards = document.querySelectorAll(".anime-card");
 const noResults = document.getElementById("noResults");
 
-searchInput.addEventListener("input", () => { // Code for searching
-    const query = searchInput.value.toLowerCase(); // Turn the search input into lowercase for consistent search result
-    let visibleCount = 0;
+let animeList = [];
 
-    cards.forEach(card => {
-        const title = card.querySelector("h3").textContent.toLowerCase();
+// Fetch anime from Jikan API
+fetch("https://api.jikan.moe/v4/top/anime")
+  .then(response => response.json())
+  .then(data => {
+    animeList = data.data;
+    displayAnime(animeList);
+  })
+  .catch(error => {
+    console.error("Error fetching anime:", error);
+  });
 
-        if (title.includes(query)) {
-            card.style.display = "block";
-            visibleCount++;
-        } else {
-            card.style.display = "none";
-        }
-    });
+function displayAnime(animeArray) {
+  animeGrid.innerHTML = "";
 
-    noResults.style.display = visibleCount === 0? "block" : "none";
-});
+  animeArray.forEach(anime => {
+    const card = document.createElement("div");
+    card.classList.add("anime-card");
 
-cards.forEach(card => { // Clciking brings up info
-    card.addEventListener("click", () => {
-        const title = card.querySelector("h3").textContent;
-        alert(`You clicked on ${title}!`);
-    });
-});
+    card.innerHTML = `
+      <img src="${anime.images.jpg.image_url}" alt="${anime.title}">
+      <h3>${anime.title}</h3>
+      <p>${anime.synopsis ? anime.synopsis.slice(0, 100) + "..." : "No description available."}</p>
+    `;
 
-cards.forEach(card => { // Toggles hidden information
-    card.addEventListener("click", () => {
-        const details = card.querySelector(".details");
-        if (details) {
-            details.classList.toggle("hidden");
-        }
-    });
+    animeGrid.appendChild(card);
+  });
+}
+
+// Search filtering
+searchInput.addEventListener("input", () => {
+  const query = searchInput.value.toLowerCase();
+
+  const filteredAnime = animeList.filter(anime =>
+    anime.title.toLowerCase().includes(query)
+  );
+
+  displayAnime(filteredAnime);
+  noResults.style.display = filteredAnime.length === 0 ? "block" : "none";
 });
