@@ -1,0 +1,79 @@
+body {
+    background-color: #0f172a;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 20;
+}
+
+h1 { /* Make the following changes to the h1 fonts*/
+    color: #38bdf8; /* Changes the color*/
+    text-align: center; /* Aligns the h1 rext to the cente*/
+}
+
+h2 {
+    margin-top: 40px; /* Adds padding space to the top of the h2 text*/
+    border-bottom: 2px solid #38bdf8; /* Adds a boarder line*/
+    padding-bottom: 10px; /* Adds padding space to the bottom of the h2 text*/
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+img {
+    width: 90%;
+    max-height: 200px;
+    border-radius: 10px;
+}
+
+.favorite {
+    color: tomato;
+}
+
+.anime-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.anime-card {
+    background-color: #1e293b;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.anime-card:hover { /* Causes the cards to hover when you hover over it*/
+    transform: scale(1.05);
+}
+
+.anime-card h3 { /* Sets the color of the names of each anime*/
+    margin-top: 15px;
+    color: #39bdf8;
+}
+
+.anime-card.favorite { /* Creates a boarder arround cards with the favorite class*/
+    border: 2px solid tomato;
+}
+
+.hidden { /* Hides objects labeled with the hidden class*/
+    display: none;
+}
+
+.search-bar {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: none;
+    margin: 20px auto;
+    display: block;
+    background-color: #1e293b;
+    color: white;
+    border: 1px solid #38bdf8;
+}
+
