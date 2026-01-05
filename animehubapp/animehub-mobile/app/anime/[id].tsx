@@ -47,7 +47,29 @@ export default function AnimeDetailScreen() {
     return (
         <SafeAreaView style={styles.container}>
         {/* This enables the header + back button */}
-        <Stack.Screen options={{ title: anime.title }} />
+            <Stack.Screen
+            options={{
+                title: anime.title,
+
+                // Header background
+                headerStyle: {
+                backgroundColor: "#0f172a", // same as app background
+                },
+
+                // Title color
+                headerTitleStyle: {
+                color: "#38bdf8",
+                fontWeight: "700",
+                },
+
+                // Back arrow color
+                headerTintColor: "#38bdf8",
+
+                // Back button text
+                headerBackTitle: "Back",
+                headerShadowVisible: false,
+            }}
+        />
 
         <ScrollView>
             <Image
@@ -77,7 +99,7 @@ const styles = StyleSheet.create({
     },
     image: {
         width: "100%",
-        height: 300,
+        height: 500,
         borderRadius: 12,
         marginBottom: 12,
     },
